@@ -1,3 +1,4 @@
+#all the code works in python 3
 # Fist of all run this line to update pip and download moduls
 pip install --upgrade pip
 pip install selenium
@@ -66,16 +67,17 @@ to_search=to_search.replace('   ', '  ')
 to_search=to_search.replace('  ', ' ')
 to_search=to_search.replace(' ', '%20')
 
-
 group_name=input('Enter Group name:')
 
 driver.get('https://www.facebook.com/groups/' + group_name + '/search/?query=' + to_search + '&epa=FILTERS') 
 
 scroll(15)
 gotop()
-print ("ended")         
+print ("ended") 
 
+#Now we have one tab with all the posts and some posts that have comments that includes our keyword
 
+#let open every post and extend every text that Facebook compress 
 URL = driver.find_elements_by_class_name("_3084")
 U=[]
 
@@ -110,6 +112,7 @@ for u in range(len(URL)):
 
     driver.switch_to.window(driver.window_handles[0])
 
+#After that have opened and extend every comment let create a big database 
 tablatotal=pd.DataFrame(columns=['post_link', 'post_date', 'post_author', 'post_content', 'dates', 'author_comment', 'comment'])
 
 totaltabs=len(driver.window_handles)
@@ -191,4 +194,5 @@ tablatotal.reset_index(drop=True, inplace=True)
 
 tablatotal.tail()
 
+#finally we have our data and now we save him as CSV file
 tablatotal.to_csv("tablatotal.csv"  ,index=False , encoding="utf-8")
