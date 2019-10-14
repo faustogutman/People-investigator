@@ -1,3 +1,9 @@
+# Fist of all run this line to update pip and download moduls
+pip install --upgrade pip
+pip install selenium
+pip install webdriver-manager
+
+# Second step: import all the packages you will need
 import pandas as pd
 import time
 # from json import dumps
@@ -6,6 +12,7 @@ from time import sleep
 # from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 
+#Some functions we will use
 def scroll(x):
     scrolls = x
     while True:
@@ -14,14 +21,13 @@ def scroll(x):
         sleep(2)
         if scrolls < 0:
             break
-            
-            
+    
 def gotop():
     driver.execute_script("window.scrollTo(0, 0);")
     
 
+#Let start with disable all thing can bother us from crhome
 option = Options()
-
 option.add_argument("--disable-infobars")
 option.add_argument("start-maximized")
 option.add_argument("--disable-extensions")
@@ -31,6 +37,8 @@ option.add_experimental_option("prefs", {
     "profile.default_content_setting_values.notifications": 2 
 })
 
+
+#Let login Facebook
 usr=input('Enter Email Id:')  
 pwd=input('Enter Password:')  
 
@@ -52,7 +60,7 @@ login_box = driver.find_element_by_id('loginbutton')
 login_box.click() 
 sleep(2) 
 
-
+#Let search all the posts and comments
 to_search=input('Enter key word to search:')
 to_search=to_search.replace('   ', '  ')
 to_search=to_search.replace('  ', ' ')
