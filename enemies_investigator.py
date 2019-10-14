@@ -1,4 +1,8 @@
 # all the code works in python 3
+# With this code you can only gather information from people who share a group with you,
+# It is not hacking!!!!! and it is legal, at least in my country.
+
+
 # Fist of all run these lines to update pip and download moduls
 # pip install --upgrade pip
 pip install selenium
