@@ -66,6 +66,11 @@ login_box.click()
 sleep(2) 
 
 # Let search all the posts and comments
+
+# Very importan!!!! 
+# every class name can change in the time, that means that maybe you'll need to find the new classes in the future.
+# this is not a problem if you are family with html, css and javascript 
+
 to_search=input('Enter key word to search:')
 to_search=to_search.replace('   ', '  ')
 to_search=to_search.replace('  ', ' ')
