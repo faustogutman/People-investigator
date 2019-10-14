@@ -1,6 +1,6 @@
-#all the code works in python 3
-# Fist of all run this line to update pip and download moduls
-pip install --upgrade pip
+# all the code works in python 3
+# Fist of all run these lines to update pip and download moduls
+# pip install --upgrade pip
 pip install selenium
 pip install webdriver-manager
 
@@ -27,7 +27,7 @@ def gotop():
     driver.execute_script("window.scrollTo(0, 0);")
     
 
-#Let start with disable all thing can bother us from crhome
+#     Let start with disable all thing can bother us from crhome
 option = Options()
 option.add_argument("--disable-infobars")
 option.add_argument("start-maximized")
@@ -39,7 +39,7 @@ option.add_experimental_option("prefs", {
 })
 
 
-#Let login Facebook
+# Let login Facebook
 usr=input('Enter Email Id:')  
 pwd=input('Enter Password:')  
 
@@ -61,7 +61,7 @@ login_box = driver.find_element_by_id('loginbutton')
 login_box.click() 
 sleep(2) 
 
-#Let search all the posts and comments
+# Let search all the posts and comments
 to_search=input('Enter key word to search:')
 to_search=to_search.replace('   ', '  ')
 to_search=to_search.replace('  ', ' ')
@@ -114,9 +114,9 @@ for u in range(len(URL)):
 
 #After that have opened and extend every comment let create a big database 
 tablatotal=pd.DataFrame(columns=['post_link', 'post_date', 'post_author', 'post_content', 'dates', 'author_comment', 'comment'])
-
 totaltabs=len(driver.window_handles)
 
+#this loop picks up the data from every tab (post) and merge into one big table
 for tab in range(1, totaltabs):
     driver.switch_to.window(driver.window_handles[tab])
     comentario=driver.find_elements_by_class_name('_72vr') #_4a6n
@@ -153,23 +153,21 @@ for tab in range(1, totaltabs):
     # postrashi=driver.find_element_by_css_selector('div.post_message') 
     postrashi=driver.find_element_by_class_name('userContent ') #post_message data-testid="post_message"
     post=postrashi.text
-        # post
+    # post
 
     creator=driver.find_element_by_class_name('_7tae') 
     creator=creator.text
-        # creator
+    # creator
 
     postfecha=driver.find_element_by_class_name('_5ptz') # _42ft # _4sxc
     postdate=postfecha.text
-        # postdate
+    # postdate
 
     tablename=U[0]
 
     tabla=pd.DataFrame([tablename, postdate, creator, post ]).T
-    # else:
-    #     tabla=pd.DataFrame([tablename, postdate, creator, post ])
     tabla.rename( columns={ 0: 'post_link' , 1:'post_date', 2: 'post_author' , 3: 'post_content'  }, inplace=True)
-        # tabla
+    # tabla
 
     if type(nombres) !=str:
         posts=pd.DataFrame(list(zip(dates, nombres ,dichos)))
@@ -177,7 +175,7 @@ for tab in range(1, totaltabs):
         posts=pd.DataFrame([[dates,nombres,dichos]])
 
     posts.rename( columns={ 0: 'dates' , 1: 'author_comment' , 2: 'comment'}, inplace=True)
-        # posts
+    # posts
 
     final=posts.join(tabla)
     final
@@ -191,7 +189,6 @@ for tab in range(1, totaltabs):
     tablatotal=tablatotal.append(finaltable , sort=False)
 
 tablatotal.reset_index(drop=True, inplace=True)
-
 tablatotal.tail()
 
 #finally we have our data and now we save him as CSV file
