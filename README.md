@@ -6,5 +6,5 @@ For example you can get into a vegan group and search the word "cow" and then ch
 or another example can be to localize "bootim" like trolls, you can study the behaivor of specific person in your city's group.
 
 The purpose that drive me to create this code was investigate someone who harasses to who criticizes the municipality of my city.
-The results show me that this person work for the municipality and the terror is part of his work. 
+The results show me that this person works for the municipality and the terror is part of his work. 
 i'm not the only that suffered from his violence.
