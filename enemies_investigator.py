@@ -3,10 +3,20 @@
 # It is not hacking!!!!! and it is legal, at least in my country.
 
 
-# Fist of all run these lines to update pip and download moduls
+# Fist of all run these lines to update pip and download moduls and chromedriver
 # pip install --upgrade pip
 pip install selenium
 pip install webdriver-manager
+pip install wget
+import wget
+from zipfile import ZipFile
+print('Beginning file download with wget module')
+url = 'https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_win32.zip'
+wget.download(url, 'chromedriver_win32.zip')
+
+with ZipFile('chromedriver_win32.zip', 'r') as zipObj:
+# Extract all the contents of zip file in current directory
+zipObj.extractall()
 
 # Second step: import all the packages you will need
 import pandas as pd
