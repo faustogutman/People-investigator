@@ -7,16 +7,36 @@
 # pip install --upgrade pip
 pip install selenium
 pip install webdriver-manager
-pip install wget
-import wget
-from zipfile import ZipFile
-print('Beginning file download with wget module')
-url = 'https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_win32.zip'
-wget.download(url, 'chromedriver_win32.zip')
+# pip install win32com
+# pip install wget
 
-with ZipFile('chromedriver_win32.zip', 'r') as zipObj:
-# Extract all the contents of zip file in current directory
-zipObj.extractall()
+## If you have not installed chromedriver, you can check your chrome version and dowloand from https://chromedriver.chromium.org/downloads
+# from win32com.client import Dispatch
+# def get_version_via_com(filename):
+#     parser = Dispatch("Scripting.FileSystemObject")
+#     version = parser.GetFileVersion(filename)
+#     return version
+# if __name__ == "__main__":
+#     try:
+#         path = r"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"  
+#         print(get_version_via_com(path))
+#     except:
+#         path = input('Write here your chrome.exe path: ')
+#         if '\chrome.exe' or  '\Chrome.exe' not in path:
+#             path = path + '\chrome.exe'
+#         path = path.replace("\\", "/") 
+#         print(path)
+#         print(get_version_via_com(path))
+
+# import wget
+# from zipfile import ZipFile
+# print('Beginning file download with wget module')
+# url = input('Paste here the link to the file zip you want to download: ')
+## url = 'https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_win32.zip'
+# wget.download(url, 'chromedriver_win32.zip')
+
+# with ZipFile('chromedriver_win32.zip', 'r') as zipObj:
+# zipObj.extractall()
 
 # Second step: import all the packages you will need
 import pandas as pd
@@ -211,4 +231,5 @@ tablatotal.reset_index(drop=True, inplace=True)
 tablatotal.tail()
 
 #finally we have our data and now we save him as CSV file
-tablatotal.to_csv("tablatotal.csv"  ,index=False , encoding="utf-8")
+sospechoso=to_search.replace("%20", "_")
+tablatotal.to_csv(( sospechoso + ".csv") , sep="," ,index=False , encoding="utf-8")
