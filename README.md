@@ -1,5 +1,5 @@
-# Enemies-investigator in FB
-Enemies-investigator is a tool that create a database with all post and comments that your enemy wrote in specific Facebook group that both are in.
+# People-investigator in FB
+People-investigator is a tool that create a database with all post and comments that your enemy wrote in specific Facebook group that both are in.
 
 If you have not enamies you are lucky, then you can create a database in order to analyze any word o name in some Facebook group.
 For example you can get into a vegan group and search the word "cow" and then check why vegans are tolking about a cow?
