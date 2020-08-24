@@ -3,7 +3,7 @@
 # It is not hacking!!!!! and it is legal, at least in my country.
 
 
-# Fist of all run these lines to update pip and download moduls and chromedriver
+# First of all run these lines to update pip and download modules and chromedriver.
 # pip install --upgrade pip
 pip install selenium
 pip install webdriver-manager
